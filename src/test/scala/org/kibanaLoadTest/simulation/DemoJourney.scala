@@ -11,13 +11,11 @@ class DemoJourney extends BaseSimulation {
   val scn = scenario(scenarioName)
     .exec(Login.doLogin(appConfig.isSecurityEnabled, appConfig.loginPayload, appConfig.loginStatusCode).pause(5 seconds))
     .exec(Discover.doQuery(appConfig.baseUrl, defaultHeaders).pause(10 seconds))
-    .exec(Dashboard.load(appConfig.baseUrl, defaultHeaders).pause(10 seconds))
-    .exec(Canvas.loadWorkpad(appConfig.baseUrl, defaultHeaders))
 
   setUp(
     scn.inject(
-      constantConcurrentUsers(20) during (3 minute), // 1
-      rampConcurrentUsers(20) to (50) during (3 minute) // 2
+      constantConcurrentUsers(20) during (1 minute), // 1
+//      rampConcurrentUsers(20) to (50) during (3 minute) // 2
     ).protocols(httpProtocol)
   ).maxDuration(15 minutes)
 
