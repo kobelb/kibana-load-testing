@@ -26,14 +26,12 @@ object Discover {
     .header("Referer", baseUrl + "/app/discover")
     .body(StringBody(discoverPayloadQ1)).asJson
     .check(status.is(200)))
-    .pause(5 seconds)
     .exec(http("Discover query 2")
       .post("/internal/search/es")
       .headers(headers)
       .header("Referer", baseUrl + "/app/discover")
       .body(StringBody(discoverPayloadQ2)).asJson
       .check(status.is(200)))
-    .pause(5 seconds)
     .exec(http("Discover query 3")
       .post("/internal/search/es")
       .headers(headers)
