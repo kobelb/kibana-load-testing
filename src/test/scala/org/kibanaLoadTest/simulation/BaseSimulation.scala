@@ -89,5 +89,8 @@ class BaseSimulation extends Simulation{
     "Sec-Fetch-Dest" -> "empty",
   )
 
+  var defaultHeadersWithAuth = defaultHeaders + ("Authorization" -> "Basic ZWxhc3RpYzpjaGFuZ2VtZQ==")
+
+
   var defaultTextHeaders = Map("Content-Type" -> "text/html; charset=utf-8")
 }
