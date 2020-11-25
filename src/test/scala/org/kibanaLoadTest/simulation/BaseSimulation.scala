@@ -91,9 +91,4 @@ class BaseSimulation extends Simulation{
   )
 
   var defaultTextHeaders = Map("Content-Type" -> "text/html; charset=utf-8")
-
-  if (appConfig.isSecurityEnabled) {
-    defaultHeaders += ("Cookie" -> "${Cookie}")
-    defaultTextHeaders += ("Cookie" -> "${Cookie}")
-  }
 }
