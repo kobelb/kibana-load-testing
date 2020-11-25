@@ -1,7 +1,7 @@
 package org.kibanaLoadTest.simulation
 
 import io.gatling.core.Predef._
-import org.kibanaLoadTest.scenario.{Canvas, Dashboard, Discover, Login}
+import org.kibanaLoadTest.scenario.{Auth, Discover}
 
 import scala.concurrent.duration.DurationInt
 
@@ -9,7 +9,8 @@ class DemoJourney extends BaseSimulation {
   val scenarioName = s"Kibana demo journey ${appConfig.buildVersion}"
 
   val scn = scenario(scenarioName)
-    .exec(Discover.doQuery(appConfig.baseUrl, defaultHeaders).pause(10 seconds))
+    .exec(Discover.doQuery(appConfig.baseUrl, defaultHeaders))
+      .exec(Auth.doQuery(appConfig.baseUrl, defaultHeaders))
 
   setUp(
     scn.inject(
