@@ -79,20 +79,11 @@ class BaseSimulation extends Simulation{
     .userAgentHeader("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36")
 
   var defaultHeaders = Map(
-    "Connection" -> "keep-alive",
     "kbn-version" -> appConfig.buildVersion,
     "Content-Type" -> "application/json",
     "Accept" -> "*/*",
     "Origin" -> appConfig.baseUrl,
-    "Sec-Fetch-Site" -> "same-origin",
-    "Sec-Fetch-Mode" -> "cors",
-    "Sec-Fetch-Dest" -> "empty"
   )
 
   var defaultTextHeaders = Map("Content-Type" -> "text/html; charset=utf-8")
-
-  if (appConfig.isSecurityEnabled) {
-    defaultHeaders += ("Cookie" -> "${Cookie}")
-    defaultTextHeaders += ("Cookie" -> "${Cookie}")
-  }
 }
