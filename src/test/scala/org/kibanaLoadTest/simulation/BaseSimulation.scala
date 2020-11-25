@@ -87,7 +87,7 @@ class BaseSimulation extends Simulation{
     "Sec-Fetch-Site" -> "same-origin",
     "Sec-Fetch-Mode" -> "cors",
     "Sec-Fetch-Dest" -> "empty",
-    "Authorization" -> "Basic: ZWxhc3RpYzpjaGFuZ2VtZQ=="
+    "Authorization" -> "Basic ZWxhc3RpYzpjaGFuZ2VtZQ=="
   )
 
   var defaultTextHeaders = Map("Content-Type" -> "text/html; charset=utf-8")
