@@ -18,7 +18,6 @@ object Login {
       .post("/internal/security/login")
       .headers(loginHeaders)
       .body(StringBody(loginPayload)).asJson
-      .check(headerRegex("set-cookie", ".+?(?=;)").saveAs("Cookie"))
       .check(status.is(loginStatusCode)))
   }
     .exitHereIfFailed
