@@ -6,7 +6,7 @@ import io.gatling.http.Predef._
 object Auth {
 
   def doQuery(baseUrl: String, headers: Map[String, String]) = exec(http("me")
-    .post("/internal/security/me")
+    .get("/internal/security/me")
     .headers(headers)
     .check(status.is(200))
   )
