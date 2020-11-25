@@ -9,7 +9,6 @@ class DemoJourney extends BaseSimulation {
   val scenarioName = s"Kibana demo journey ${appConfig.buildVersion}"
 
   val scn = scenario(scenarioName)
-    .exec(Login.doLogin(appConfig.isSecurityEnabled, appConfig.loginPayload, appConfig.loginStatusCode).pause(5 seconds))
     .exec(Discover.doQuery(appConfig.baseUrl, defaultHeaders).pause(10 seconds))
 
   setUp(
