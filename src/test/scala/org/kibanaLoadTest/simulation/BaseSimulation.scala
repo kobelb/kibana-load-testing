@@ -80,7 +80,7 @@ class BaseSimulation extends Simulation{
 
   var defaultHeaders = Map(
     "Connection" -> "keep-alive",
-    "kbn-version" -> appConfig.buildVersion,
+    "kbn-xsrf" -> "true",
     "Content-Type" -> "application/json",
     "Accept" -> "*/*",
     "Origin" -> appConfig.baseUrl,
